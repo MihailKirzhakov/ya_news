@@ -32,19 +32,19 @@ def not_author_client(not_author):
 
 
 @pytest.fixture
-def news():
-    news = News.objects.create(
+def post():
+    post = News.objects.create(
         title='Заголовок',
         text='Текст новости',
         date=datetime.today(),
     )
-    return news
+    return post
 
 
 @pytest.fixture
-def comment(news, author):
+def comment(post, author):
     comment = Comment.objects.create(
-        news=news,
+        news=post,
         author=author,
         text='Текст комментария',
     )
